@@ -28,10 +28,11 @@ public interface UserDao {
      * This is the method to be used to return list
      * of users based on their location.
      */
-	public List<User> getUserByLocation(String location);
+	public List<User> getUserByLocation(int lid);
 	/** 
      * This is the method to be used to get
      * a user object based on the user Id.
      */
 	public User getUserById(int userId);
+	public void changeUserType(int userId);
 }

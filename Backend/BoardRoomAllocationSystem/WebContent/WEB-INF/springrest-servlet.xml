@@ -8,4 +8,17 @@
  <mvc:annotation-driven/>
 <context:component-scan base-package="com.boardroomproject" />
  
+ <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  <property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
+  <property name="url" value="jdbc:mysql://localhost:3306/emp" /> 
+  <property name="username" value="root" /> 
+  <property name="password" value="root" /> 
+  </bean>
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+  <property name="dataSource" ref="dataSource" /> 
+  </bean>
+<bean id="edao" class="com.boardroomproject.dao">
+  <property name="jdbcTemplate" ref="jdbcTemplate" /> 
+  </bean>
+ 
 </beans>
